@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'],function(){
     //signup
-    Route::get('/',[SignupController::class,'index']);
+    Route::get('/',[SignupController::class,'index'])->name('index');
     Route::post('/signup',[SignupController::class,'StoreUser'])->name("signup");
 
 
@@ -40,3 +40,6 @@ Route::post("signout",[SignoutController::class,'logout'])->name("signout");
 
 //Images
 Route::post("uploadImage",[FlaskController::class,'UploadImage'])->name("image.upload");
+
+//Result
+Route::get('/result',[FlaskController::class,'result'])->name("result");
