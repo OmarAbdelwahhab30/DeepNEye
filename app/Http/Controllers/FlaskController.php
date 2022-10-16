@@ -18,6 +18,11 @@ class FlaskController extends Controller
 
         $FileName = time() . "-" . $request->file("image")->getClientOriginalName() . '.' . $request->file("image")->extension();
         $request->file("image")->move(public_path('storage/' . "ModelsImages"), $FileName);
-        return redirect()->back()->with('review',json_decode($response));
+        session()->flash('review', json_decode($response));
+        return redirect()->route('result');
+    }
+
+    public function result(){
+        return view('result');
     }
 }

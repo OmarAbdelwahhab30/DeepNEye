@@ -1,0 +1,78 @@
+/* Home Page */
+
+/*header*/
+
+header{
+    display: block;
+    background-color: rgb(10, 44, 95);
+    height: 80px;
+}
+header img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 8px;
+}
+header ul{
+    margin-left: 80%;
+    margin-top: -60px;
+
+
+}
+header ul .header-li{
+    list-style: none;
+    display: inline;
+}
+header ul .header-li a{
+    display: inline;
+    margin-left: 40px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    width: 50px;
+}
+header ul .header-li a:hover{
+    background-color: rgb(64, 149, 205);
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/*body*/
+
+.home-div{
+    margin-top: 8% ;
+    margin-left: 38%;
+}
+.home-div form{
+    border: 3px solid rgb(68, 89, 224);
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: rgb(90, 176, 203);
+    box-sizing: border-box;
+}
+.home-div form input{
+    margin-bottom: 80px ;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.home-div form a{
+    border-radius: 10px;
+    border: 2px solid rgb(173, 176, 197);
+    background-color: rgb(26, 71, 153);
+    color: white;
+    margin-left: 35%;
+    padding: 8px 30px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+.home-div form a:hover{
+    background-color: rgb(91, 157, 231);
+    color: black;
+    border: 2px solid rgb(23, 71, 144);
+}

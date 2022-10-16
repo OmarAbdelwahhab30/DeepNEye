@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href=" {{ asset('css/home.css') }}">
-    <link rel="stylesheet" href=" {{ asset('css/all.min.css') }}">
+        <link rel="stylesheet" href=" {{ asset('css/table.css') }}">
+        <link rel="stylesheet" href=" {{ asset('css/all.min.css') }}">
+    <title>Result</title>
     <style>
         .sign-out{
             background-color: inherit;
@@ -30,11 +31,9 @@
             background-color: rgb(64, 149, 205); 
         }
     </style>
-    <title>Home</title>
 </head>
 
 <body>
-
 
     <header>
         <img src="{{ asset('images/medical.jpg') }}" alt="">
@@ -51,27 +50,35 @@
         </ul>
     </header>
 
-    <div class="home-div">
-        <form action="{{route("image.upload")}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <input type="file" name="image">
-            @error('image')
-                <div class="alert alert-danger text-center m-4">
-                    {{ $message }}
-                </div>
-            @enderror
-            <div class="text-center">
-                <button type="submit" class="upload">Upload</button>
-            </div>
-        </form>
-    </div>
+
+    @if(Session::has("review"))
+
+        <table>
+            <thead>
+            <tr>
+                <th>class</th>
+                <th>confidence</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach(Session::get("review") as $rev)
+            <tr>
+                <td>{{$rev->class}}</td>
+                <td>{{$rev->confidence}}</td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+@endif
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/all.min.js') }}"></script>
-
 
 </body>
 

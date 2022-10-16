@@ -1,0 +1,77 @@
+/*header*/
+
+header{
+    display: block;
+    background-color: rgb(10, 44, 95);
+    height: 80px;
+}
+header img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 8px;
+}
+header ul{
+    margin-left: 80%;
+    margin-top: -60px;
+
+
+}
+header ul .header-li{
+    list-style: none;
+    display: inline;
+}
+header ul .header-li a{
+    display: inline;
+    margin-left: 40px;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    width: 50px;
+}
+header ul .header-li a:hover{
+    background-color: rgb(64, 149, 205);
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+
+/*result*/
+
+table{
+    border-collapse: collapse;
+    width: 500px;
+    height: 150px;
+    margin-top: 200px;
+    margin-left:  auto;
+    margin-right:  auto;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(167, 213, 253);
+    overflow-x: auto;
+  }
+
+
+table,th,td{
+    border: 2px solid rgb(26, 74, 151);
+    padding: 10px;
+
+}
+
+.back{
+    margin-left: 45%;
+    margin-top: 5px;
+}
+
+
+.back a{
+    text-decoration: none;
+    color: rgb(91, 91, 91);
+    font-size: 15px;
+}
+
+
+.back a:hover{
+    color: rgb(30, 39, 48);
+}
