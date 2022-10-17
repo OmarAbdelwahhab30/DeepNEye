@@ -4,6 +4,7 @@
 <div class="home-div">
     <form action="{{route("image.upload")}}" method="post" enctype="multipart/form-data">
         @csrf
+        @include("alerts")
         <input type="file" name="image">
         @error('image')
             <div class="alert alert-danger text-center m-4">

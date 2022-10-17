@@ -21,10 +21,14 @@ class FlaskController extends Controller
 
     public function bindFlask(ImageRequest $request)
     {
-        $response = $this->callApi($request);
-        $this->ValidateFile($request->file("image"),'ModelsImages');
-        session()->flash('review', json_decode($response));
-        return redirect()->route('result');
+        try {
+            $response = $this->callApi($request);
+            $this->ValidateFile($request->file("image"),'ModelsImages');
+            session()->flash('review', json_decode($response));
+            return redirect()->route('result');
+        }catch (\Exception $e){
+            return redirect()->back()->with("error","Some Thing Went Wrong , try agian later");
+        }
     }
 
     public function callApi($request){
