@@ -2,16 +2,11 @@
 @section('title', 'Home')
 @section("content")
 <div class="home-div">
-    <form action="{{route("image.upload")}}" method="post" enctype="multipart/form-data">
+    <form style="height: auto" action="{{route("image.upload")}}" method="post" enctype="multipart/form-data">
         @csrf
         @include("alerts")
         <input type="file" name="image">
-        @error('image')
-            <div class="alert alert-danger text-center m-4">
-                {{ $message }}
-            </div>
-        @enderror
-        <div class="text-center">
+        <div class="text-center mb-3">
             <button type="submit" class="upload">Display Result</button>
         </div>
     </form>
