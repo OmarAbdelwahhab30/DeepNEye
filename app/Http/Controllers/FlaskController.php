@@ -4,26 +4,35 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\ImageRequest;
-use Illuminate\Http\Request;
+use App\Traits\ApiTrait;
+use App\Traits\FileUploaderTrait;
 use Illuminate\Support\Facades\Http;
 
 class FlaskController extends Controller
 {
 
-    public function UploadImage(ImageRequest $request)
-    {
-        $photo = fopen($request->file('image'), 'rb');
-        $response = Http::attach('file',$photo)
-            ->post('http://127.0.0.1:8123/api');
-        fclose($photo);
+    use ApiTrait;
+    use FileUploaderTrait;
 
-        $FileName = time() . "-" . $request->file("image")->getClientOriginalName() . '.' . $request->file("image")->extension();
-        $request->file("image")->move(public_path('storage/' . "ModelsImages"), $FileName);
+    public function index(){
+        return view('result');
+    }
+
+
+    public function bindFlask(ImageRequest $request)
+    {
+        $response = $this->callApi($request);
+        $this->ValidateFile($request->file("image"),'ModelsImages');
         session()->flash('review', json_decode($response));
         return redirect()->route('result');
     }
 
-    public function result(){
-        return view('result');
+    public function callApi($request){
+        $photo = fopen($request->file('image'), 'rb');
+        $response = Http::attach('file',$photo)->post('http://127.0.0.1:5000/success');
+        fclose($photo);
+        return $response;
     }
+
+
 }

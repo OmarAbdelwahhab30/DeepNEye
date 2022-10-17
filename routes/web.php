@@ -19,27 +19,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+// Authentication routes here
 Route::group(['middleware' => 'guest'],function(){
-    //signup
+    //Sign-up routes
     Route::get('/',[SignupController::class,'index'])->name('index');
     Route::post('/signup',[SignupController::class,'StoreUser'])->name("signup");
-
-
-    //signin
+    //Sign-in routes
     Route::get('/signin',[SigninController::class,'index'])->name("signin.page");
     Route::post('/CheckUser',[SigninController::class,'CheckUser'])->name("signin");
 });
-
-//home
-Route::get('/home',[HomeController::class,'index'])->name("home");
-
-
-//signout
+//Signout-routes
 Route::post("signout",[SignoutController::class,'logout'])->name("signout");
 
 
-//Images
-Route::post("uploadImage",[FlaskController::class,'UploadImage'])->name("image.upload");
+// Other Website Routes
 
-//Result
-Route::get('/result',[FlaskController::class,'result'])->name("result");
+//Home page routes
+Route::get('/home',[HomeController::class,'index'])->name("home");
+
+//API routes
+Route::post("bindFlask",[FlaskController::class,'bindFlask'])->name("image.upload");
+Route::get('/result',[FlaskController::class,'index'])->name("result");

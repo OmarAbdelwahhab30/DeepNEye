@@ -10,13 +10,12 @@
             </tr>
             </thead>
             <tbody>
-            @foreach(Session::get("review") as $rev)
                 <tr>
-                    <td>{{$rev->class}}</td>
-                    <td>{{$rev->confidence}}</td>
+                    <td>{{Session::get("review")->class}}</td>
+                    <td>{{Session::get("review")->confidence}}</td>
                 </tr>
-            @endforeach
             </tbody>
         </table>
     @endif
+{{--    {{print_r(Session::get("review") )}}--}}
 @endsection

@@ -1,5 +1,5 @@
 @extends("includes.auth.app")
-@section('title', 'Sign-In')
+@section('title', 'Sign-Up')
 @section("content")
     <div class="sign-form">
         <div class="logo">
