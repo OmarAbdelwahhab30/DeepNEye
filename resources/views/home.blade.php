@@ -11,7 +11,7 @@
             </div>
         @enderror
         <div class="text-center">
-            <button type="submit" class="upload">Upload</button>
+            <button type="submit" class="upload">Display Result</button>
         </div>
     </form>
 </div>
