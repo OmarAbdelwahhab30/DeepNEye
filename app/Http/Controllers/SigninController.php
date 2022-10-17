@@ -20,6 +20,6 @@ class SigninController extends Controller
             return redirect()->route("home");
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('failed','These credentials do not match our records.');
     }
 }

@@ -8,6 +8,11 @@
         <div class="register">
             <form action="{{route("signin")}}" method="post">
                 @csrf
+                @if(Session::has('failed'))
+                    <div class="alert alert-danger text-center m-4">
+                        {{ Session::get('failed') }}
+                    </div>
+                @endif
                 <input type="email" name="email" placeholder="Enter Email">
                 @error('email')
                     <div class="alert alert-danger text-center m-4">
