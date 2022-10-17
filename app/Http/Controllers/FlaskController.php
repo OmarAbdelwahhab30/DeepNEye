@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\ImageRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -13,7 +14,7 @@ class FlaskController extends Controller
     {
         $photo = fopen($request->file('image'), 'rb');
         $response = Http::attach('file',$photo)
-            ->post('http://127.0.0.1:5000/api/predict');
+            ->post('http://127.0.0.1:8123/api');
         fclose($photo);
 
         $FileName = time() . "-" . $request->file("image")->getClientOriginalName() . '.' . $request->file("image")->extension();
