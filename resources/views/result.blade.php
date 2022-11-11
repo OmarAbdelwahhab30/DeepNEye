@@ -12,7 +12,7 @@
             <tbody>
                 <tr>
                     <td>{{Session::get("review")->class}}</td>
-                    <td>{{round(Session::get("review")->confidence*100,2)}}%</td>
+                    <td>{{Session::get("review")->confidence}}</td>
                 </tr>
             </tbody>
         </table>

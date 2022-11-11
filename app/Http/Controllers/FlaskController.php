@@ -24,7 +24,7 @@ class FlaskController extends Controller
         try {
             $response = $this->callApi($request);
             $this->ValidateFile($request->file("image"),'ModelsImages');
-            session()->flash('review', json_decode($response));
+            session()->flash('review',json_decode($response));
             return redirect()->route('result');
         }catch (\Exception $e){
             return redirect()->back()->with("error","Some Thing Went Wrong , try agian later");
@@ -33,7 +33,7 @@ class FlaskController extends Controller
 
     public function callApi($request){
         $photo = fopen($request->file('image'), 'rb');
-        $response = Http::attach('file',$photo)->post('http://127.0.0.1:5000/success');
+        $response = Http::attach('file',$photo)->post('http://127.0.0.1:5000/api/dme');
         fclose($photo);
         return $response;
     }

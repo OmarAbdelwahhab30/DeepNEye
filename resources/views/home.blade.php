@@ -6,7 +6,7 @@
         @csrf
         @include("alerts")
         <input type="file" name="image">
-        <div class="text-center mb-3">
+        <div class="text-center mb-3" style="text-align: center; margin-bottom: 10px">
             <button type="submit" class="upload">Display Result</button>
         </div>
     </form>
